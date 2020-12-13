@@ -1,4 +1,4 @@
-baseURL = "https://example.com"
+baseURL = "https://reason-data-style-guide.netlify.app/"
 
 languageCode = "en-us"
 DefaultContentLanguage = "en"
