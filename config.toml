@@ -82,7 +82,7 @@ enableMissingTranslationPlaceholders = false
         unsafe= true
     [markup.tableOfContents]
         startLevel = 2
-        endLevel = 6
+        endLevel = 8
         ordered = false
 
 [outputs]
