@@ -83,7 +83,7 @@ enableMissingTranslationPlaceholders = false
     [markup.tableOfContents]
         startLevel = 2
         endLevel = 6
-        ordered = true
+        ordered = false
 
 [outputs]
     home = ["HTML", "RSS", "Algolia"]
