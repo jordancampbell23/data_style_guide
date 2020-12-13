@@ -82,8 +82,8 @@ enableMissingTranslationPlaceholders = false
         unsafe= true
     [markup.tableOfContents]
         startLevel = 2
-        endLevel = 8
-        ordered = false
+        endLevel = 6
+        ordered = true
 
 [outputs]
     home = ["HTML", "RSS", "Algolia"]
