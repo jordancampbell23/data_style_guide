@@ -15,7 +15,7 @@ enableMissingTranslationPlaceholders = false
 [params]
 
     # Source Code repository section
-    description = "from Analytics and Data Visualization Team"
+    description = "Cookbook for Analytics and Data Visualization Team"
     #github_repository = "https://github.com/thingsym/hugo-theme-techdoc"
     #version = "0.9.6"
 

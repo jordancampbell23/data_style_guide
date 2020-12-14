@@ -1,0 +1,29 @@
+---
+title: 'Bar plot'
+author: jordancampbell23
+date: '2020-12-13'
+slug: []
+categories: []
+tags: []
+lastmod: '2020-12-13T22:31:51-08:00'
+publishdate: '2020-12-13T22:31:51-08:00'
+description: ''
+weight: 20
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<p>Basic bar plot</p>
+<pre class="r"><code># Load ggplot2
+library(ggplot2)
+
+# Create data
+data &lt;- iris
+
+# Barplot
+ggplot(data, aes(x = Species, y = Petal.Length)) + 
+  geom_bar(stat = &quot;identity&quot;)</code></pre>
+<p><img src="/chapter1/2020-12-13-/index.en_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
