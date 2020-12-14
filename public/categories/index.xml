@@ -1,27 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Hugo Techdoc Theme</title>
-    <link>https://example.com/categories/</link>
-    <description>Recent content in Categories on Hugo Techdoc Theme</description>
+    <title>Categories on Reason Foundation | Data Visualization Guide</title>
+    <link>https://reason-data-style-guide.netlify.app/categories/</link>
+    <description>Recent content in Categories on Reason Foundation | Data Visualization Guide</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Apr 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate><atom:link href="https://reason-data-style-guide.netlify.app/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R</title>
+      <link>https://reason-data-style-guide.netlify.app/categories/r/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      
+      <guid>https://reason-data-style-guide.netlify.app/categories/r/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Development</title>
-      <link>https://example.com/categories/development/</link>
+      <link>https://reason-data-style-guide.netlify.app/categories/development/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/categories/development/</guid>
+      <guid>https://reason-data-style-guide.netlify.app/categories/development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>golang</title>
-      <link>https://example.com/categories/golang/</link>
+      <link>https://reason-data-style-guide.netlify.app/categories/golang/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/categories/golang/</guid>
+      <guid>https://reason-data-style-guide.netlify.app/categories/golang/</guid>
       <description></description>
     </item>
     
