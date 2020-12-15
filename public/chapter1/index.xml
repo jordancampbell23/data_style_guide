@@ -9,20 +9,12 @@
     <lastBuildDate>Tue, 17 Oct 2017 15:26:15 +0000</lastBuildDate><atom:link href="https://reason-data-style-guide.netlify.app/chapter1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bar plot</title>
-      <link>https://reason-data-style-guide.netlify.app/chapter1/2020-12-13-other-plots/</link>
-      <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
+      <link>https://reason-data-style-guide.netlify.app/chapter1/2020-12-13-/</link>
+      <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://reason-data-style-guide.netlify.app/chapter1/2020-12-13-other-plots/</guid>
-      <description>Lorem Ipsum.</description>
-    </item>
-    
-    <item>
-      <title>Waterfall plot</title>
-      <link>https://reason-data-style-guide.netlify.app/chapter1/2020-12-13-waterfall-plot/</link>
-      <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
-      
-      <guid>https://reason-data-style-guide.netlify.app/chapter1/2020-12-13-waterfall-plot/</guid>
-      <description>Lorem Ipsum.</description>
+      <guid>https://reason-data-style-guide.netlify.app/chapter1/2020-12-13-/</guid>
+      <description>Basic bar plot
+# Load ggplot2library(ggplot2)# Create datadata &amp;lt;- iris# Barplotggplot(data, aes(x = Species, y = Petal.Length)) + geom_bar(stat = &amp;quot;identity&amp;quot;)</description>
     </item>
     
     <item>

@@ -8,12 +8,47 @@
   </url>
   
   <url>
+    <loc>https://reason-data-style-guide.netlify.app/plotly/1/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reason-data-style-guide.netlify.app/tidyverse/1/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reason-data-style-guide.netlify.app/chapter3/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://reason-data-style-guide.netlify.app/chapter2/2/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
+    <loc>https://reason-data-style-guide.netlify.app/plotly/2/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reason-data-style-guide.netlify.app/tidyverse/2/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://reason-data-style-guide.netlify.app/chapter2/3/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reason-data-style-guide.netlify.app/plotly/3/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reason-data-style-guide.netlify.app/tidyverse/3/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
@@ -25,11 +60,6 @@
   <url>
     <loc>https://reason-data-style-guide.netlify.app/sample/markdown-syntax/</loc>
     <lastmod>2020-11-17T15:26:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reason-data-style-guide.netlify.app/chapter1/2020-12-13-other-plots/</loc>
-    <lastmod>2020-12-13T14:39:37-08:00</lastmod>
   </url>
   
   <url>
@@ -58,21 +88,6 @@
   </url>
   
   <url>
-    <loc>https://reason-data-style-guide.netlify.app/chapter1/2020-12-13-waterfall-plot/</loc>
-    <lastmod>2020-12-13T14:41:45-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reason-data-style-guide.netlify.app/post/creating-a-new-theme/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reason-data-style-guide.netlify.app/post/migrate-from-jekyll/</loc>
-    <lastmod>2014-03-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://reason-data-style-guide.netlify.app/hello_world/</loc>
     <lastmod>2017-10-17T14:00:45+00:00</lastmod>
   </url>
@@ -83,7 +98,22 @@
   </url>
   
   <url>
+    <loc>https://reason-data-style-guide.netlify.app/chapter1/2020-12-13-/</loc>
+    <lastmod>2020-12-13T22:31:51-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://reason-data-style-guide.netlify.app/chapter2/4/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reason-data-style-guide.netlify.app/plotly/4/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reason-data-style-guide.netlify.app/tidyverse/4/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
@@ -103,12 +133,17 @@
   </url>
   
   <url>
+    <loc>https://reason-data-style-guide.netlify.app/plotly/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://reason-data-style-guide.netlify.app/chapter2/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://reason-data-style-guide.netlify.app/chapter3/</loc>
+    <loc>https://reason-data-style-guide.netlify.app/tidyverse/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
@@ -188,32 +223,47 @@
   </url>
   
   <url>
+    <loc>https://reason-data-style-guide.netlify.app/plotly/5/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reason-data-style-guide.netlify.app/plotly/6/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reason-data-style-guide.netlify.app/tidyverse/5/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reason-data-style-guide.netlify.app/tidyverse/6/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://reason-data-style-guide.netlify.app/chapter3/1/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://reason-data-style-guide.netlify.app/chapter3/chapter3-2/</loc>
+    <loc>https://reason-data-style-guide.netlify.app/chapter3/ggplot2/1/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://reason-data-style-guide.netlify.app/chapter3/chapter3-2/1/</loc>
+    <loc>https://reason-data-style-guide.netlify.app/chapter3/ggplot2/2/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://reason-data-style-guide.netlify.app/chapter3/chapter3-2/2/</loc>
+    <loc>https://reason-data-style-guide.netlify.app/chapter3/ggplot2/3/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://reason-data-style-guide.netlify.app/chapter3/chapter3-2/3/</loc>
-    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reason-data-style-guide.netlify.app/chapter3/chapter3-2/4/</loc>
+    <loc>https://reason-data-style-guide.netlify.app/chapter3/ggplot2/4/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
@@ -254,6 +304,11 @@
   
   <url>
     <loc>https://reason-data-style-guide.netlify.app/chapter4/chapter4-1/chapter4-1-1/chapter4-1-1-1/chapter4-1-1-1-1/chapter4-1-1-1-1-1/chapter4-1-1-1-1-1-1/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reason-data-style-guide.netlify.app/chapter3/ggplot2/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
@@ -333,18 +388,8 @@
   </url>
   
   <url>
-    <loc>https://reason-data-style-guide.netlify.app/post/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://reason-data-style-guide.netlify.app/about/</loc>
     <lastmod>2014-04-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reason-data-style-guide.netlify.app/post/goisforlovers/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -358,7 +403,12 @@
   </url>
   
   <url>
-    <loc>https://reason-data-style-guide.netlify.app/post/hugoisforlovers/</loc>
+    <loc>https://reason-data-style-guide.netlify.app/post/extra_tab_i/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reason-data-style-guide.netlify.app/post/extra_tab_ii/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
   
@@ -379,6 +429,11 @@
   
   <url>
     <loc>https://reason-data-style-guide.netlify.app/tags/hugo/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reason-data-style-guide.netlify.app/post/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
   

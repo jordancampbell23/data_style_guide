@@ -1,0 +1,28 @@
+---
+title: 'Bar plot'
+author: jordancampbell23
+date: '2020-12-13'
+slug: []
+categories: []
+tags: []
+lastmod: '2020-12-13T22:31:51-08:00'
+publishdate: '2020-12-13T22:31:51-08:00'
+description: ''
+weight: 20
+---
+
+Basic bar plot
+
+```{r}
+# Load ggplot2
+library(ggplot2)
+
+# Create data
+data <- iris
+
+# Barplot
+ggplot(data, aes(x = Species, y = Petal.Length)) + 
+  geom_bar(stat = "identity")
+
+```
+

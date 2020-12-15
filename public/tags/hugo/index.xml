@@ -8,11 +8,11 @@
     <language>en-us</language>
     <lastBuildDate>Wed, 02 Apr 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://reason-data-style-guide.netlify.app/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Getting Started with Hugo</title>
-      <link>https://reason-data-style-guide.netlify.app/post/hugoisforlovers/</link>
+      <title>Extra Tab II</title>
+      <link>https://reason-data-style-guide.netlify.app/post/extra_tab_ii/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://reason-data-style-guide.netlify.app/post/hugoisforlovers/</guid>
+      <guid>https://reason-data-style-guide.netlify.app/post/extra_tab_ii/</guid>
       <description>Step 1. Install Hugo Go to Hugo releases and download the appropriate version for your OS and architecture.
 Save it somewhere specific as we will be using it in the next step.
 More complete instructions are available at Install Hugo
