@@ -11,7 +11,7 @@ tags:
 - templates
 - themes
 - development
-title: Extra Tab
+title: Extra Tab I
 ---
 
 Hugo uses the excellent [Go][] [html/template][gohtmltemplate] library for

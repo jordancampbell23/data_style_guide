@@ -10,7 +10,7 @@ tags:
 - golang
 - hugo
 - development
-title: Getting Started with Hugo
+title: Extra Tab II
 ---
 
 ## Step 1. Install Hugo
