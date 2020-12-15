@@ -27,3 +27,5 @@ title: Home title
 * [Search Shortcode](sample/search-shortcode/) powered by [Algolia](https://www.algolia.com/)
 * Open Graph
 * Analytics with Google Analytics, Google Tag Manager
+
+![](https://raw.githubusercontent.com/jordancampbell23/Texas/master/reason_logo_V.PNG)

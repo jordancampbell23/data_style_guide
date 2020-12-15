@@ -1,7 +1,7 @@
 ---
 date: "2017-10-17T15:26:15Z"
 draft: false
-title: ggplot2
+title: Charting
 weight: 20
 ---
 

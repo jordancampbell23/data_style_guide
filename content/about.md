@@ -4,14 +4,8 @@ menu: main
 title: About
 ---
 
-Hugo is a static site engine written in Go.
+This site is an internal research resource for the Reason Research Division,
 
+It is intended to be both a learning resource and provide guidance on data visualization style.
 
-It makes use of a variety of open source projects including:
-
-* [Cobra](https://github.com/spf13/cobra)
-* [Viper](https://github.com/spf13/viper)
-* [J Walter Weatherman](https://github.com/spf13/jWalterWeatherman)
-* [Cast](https://github.com/spf13/cast)
-
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
+![](https://raw.githubusercontent.com/jordancampbell23/Texas/master/reason_logo_V.PNG)
