@@ -1,8 +1,8 @@
 ---
 date: "2017-10-17T15:26:15Z"
 draft: false
-title: shiny
-weight: 50
+title: Mapping
+weight: 51
 ---
 
 {{% panel status="primary" title="Note" icon="far fa-lightbulb" %}}
