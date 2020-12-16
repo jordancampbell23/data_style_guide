@@ -1,0 +1,149 @@
+---
+title: 'R Code Testing'
+date: '2020-12-15'
+slug: []
+categories: []
+tags: []
+lastmod: '2020-12-15T22:26:10-08:00'
+publishdate: '2020-12-15T22:26:10-08:00'
+description: ''
+weight: 10
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/echarts4r/echarts-en.min.js"></script>
+<script src="/rmarkdown-libs/echarts4r/ecStat.min.js"></script>
+<script src="/rmarkdown-libs/echarts4r/dataTool.min.js"></script>
+<script src="/rmarkdown-libs/echarts4r-binding/echarts4r.js"></script>
+
+
+<p>Lorem Ipsum.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## v ggplot2 3.3.2     v purrr   0.3.4
+## v tibble  3.0.4     v dplyr   1.0.2
+## v tidyr   1.1.2     v stringr 1.4.0
+## v readr   1.3.1     v forcats 0.5.0</code></pre>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(readr)
+library(echarts4r)</code></pre>
+<pre><code>## Warning: package &#39;echarts4r&#39; was built under R version 4.0.3</code></pre>
+<pre class="r"><code>school_type &lt;- c(&quot;Open Enrollment Charter&quot;, &quot;Traditional ISD/CSD&quot;)
+
+demographics &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/jordancampbell23/charter/main/df_110820.csv&quot;) %&gt;%
+  select(3, 1, 2, 15, 16, 14, 13, 4:12, 17:70)</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   YEAR = col_double(),
+##   `ALL FUNDS-LOCAL TAX REVENUE FROM M&amp;O` = col_double(),
+##   `ALL FUNDS-STATE REVENUE` = col_double(),
+##   `ALL FUNDS-OTHER LOCAL &amp; INTERMEDIATE REVENUE` = col_double(),
+##   `ALL FUNDS-LOCAL PROPERTY TAXES FROM I&amp;S` = col_double(),
+##   `ALL FUNDS-STATE DEBT FUNDS` = col_double(),
+##   `ALL FUNDS-OTHER RECEIPTS` = col_double(),
+##   `ALL FUNDS-DEBT SERVICE FINANCING RELATED REVENUE` = col_double(),
+##   `Revenue Sum` = col_double(),
+##   `Revenue Sum w/ Debt` = col_double(),
+##   `2018-2019 ADA` = col_number(),
+##   REGION = col_double(),
+##   Asian = col_double(),
+##   `Black or African American` = col_double(),
+##   `Hispanic/Latino` = col_double(),
+##   `Two or more races` = col_double(),
+##   White = col_double(),
+##   `American Indian or Alaska Nat` = col_double(),
+##   `Native Hawaiian/Other Pacific` = col_double(),
+##   `Total Ethnicity` = col_double()
+##   # ... with 10 more columns
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<pre class="r"><code>demographics$`District 2019 Overall Scaled Score` &lt;- as.numeric(demographics$`District 2019 Overall Scaled Score`)</code></pre>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre class="r"><code>demographics &lt;- demographics %&gt;%
+  select(6:7, 24, 40, 17:23, 41, 43, 45, 47) %&gt;%
+  group_by(`REPORT_CHARTER_STATUS`) %&gt;%
+  summarise(`2018-2019 ADA` = sum(`2018-2019 ADA`),
+            `All Students Count` = sum(`All Students Count`),
+            `Total Ethnicity` = sum(`Total Ethnicity`),
+            `Asian` = sum(`Asian`),
+            `Black or African American` = sum(`Black or African American`),
+            `Hispanic/Latino` = sum(`Hispanic/Latino`),
+            `Two or more races` = sum(`Two or more races`),
+            `White` = sum(`White`),
+            `American Indian or Alaska Nat` = sum(`American Indian or Alaska Nat`),
+            `Native Hawaiian/Other Pacific` = sum(`Native Hawaiian/Other Pacific`),
+            `Total Ethnicity` = sum(`Total Ethnicity`),
+            `# Economically Disadvantaged` = sum(`# Economically Disadvantaged`),
+            `# LEP Students` = sum(`# LEP Students`),
+            `# Special Education` = sum(`# Special Education`),
+            .groups = &quot;keep&quot;) %&gt;%
+  mutate(`% Asian` = Asian/`Total Ethnicity`) %&gt;%
+  mutate(`% Black` = `Black or African American`/`Total Ethnicity`) %&gt;%
+  mutate(`% Hispanic` = `Hispanic/Latino`/`Total Ethnicity`) %&gt;%
+  mutate(`% White` = White/`Total Ethnicity`) %&gt;%
+  mutate(`% Minority` = (`Total Ethnicity` -`White`)/`Total Ethnicity`) %&gt;%
+  mutate(`% Econ. Disadvantaged` = `# Economically Disadvantaged`/`All Students Count`) %&gt;%
+  mutate(`% LEP` = `# LEP Students`/`All Students Count`) %&gt;%
+  mutate(`% SPED` = `# Special Education`/`All Students Count`) %&gt;%
+  select(1, 15:22) %&gt;%
+  pivot_longer(cols = 2:9, names_to = &quot;Demographic Variable&quot;, values_to = &quot;Percent&quot;)
+
+
+my_colors &lt;- tibble::tibble(
+  REPORT_CHARTER_STATUS = school_type,
+  color = c(&quot;#FF6633&quot;,
+            &quot;#2879CB&quot;)
+)
+
+## filter selected and add color information
+dat &lt;-
+  demographics %&gt;% 
+  #dplyr::filter(`Demographic Variable` %in% input$crop_select3) %&gt;%
+  dplyr::left_join(my_colors, by = &quot;REPORT_CHARTER_STATUS&quot;) %&gt;%
+  dplyr::mutate(`Label` = paste0(round(Percent * 100, 2), &quot;%&quot;))
+
+## plot
+e &lt;- dat %&gt;%
+  dplyr::group_by(REPORT_CHARTER_STATUS) %&gt;% 
+  echarts4r::e_charts(`Demographic Variable`) %&gt;% 
+  echarts4r::e_tooltip(trigger = &quot;item&quot;,
+                       formatter = e_tooltip_item_formatter(style = &quot;percent&quot;, digits = 2)) %&gt;% 
+  echarts4r::e_x_axis(axisTick = list(interval = 0)) %&gt;% 
+  echarts4r::e_color(unique(dat$color)) %&gt;% 
+  echarts4r::e_toolbox(bottom = 0) %&gt;% 
+  echarts4r::e_toolbox_feature(feature = &quot;dataZoom&quot;) %&gt;%
+  echarts4r::e_toolbox_feature(feature = &quot;restore&quot;) %&gt;%
+  echarts4r::e_x_axis(axisLabel = list(fontSize = 14, interval = 0, rotate = 45)) %&gt;%
+  echarts4r::e_y_axis(axisLabel = list(fontSize = 14), 
+                      formatter = e_axis_formatter(style = &quot;percent&quot;,
+                                                   digits = 0)) %&gt;%
+  e_tooltip(formatter = htmlwidgets::JS(&quot;
+      function(params){
+             return(
+             params.marker +
+             params.seriesName +
+             &#39;&lt;br/&gt;&#39; +
+             params.value[0] +
+             &#39;: &#39; + &#39; &#39; +
+             (params.value[1] * 100).toFixed(2) + &#39;%&#39;
+             )                                                                    
+             }
+       &quot;))
+
+e %&gt;% echarts4r::e_bar(`Percent`,
+                       barGap = &quot;0%&quot;,
+                       bind = Label,
+                       label=list(show = T,
+                                  formatter = &quot;{b}&quot;,
+                                  position = &quot;top&quot;,
+                                  color = &quot;#000000&quot;))</code></pre>
+<div id="htmlwidget-1" style="width:100%;height:500px;" class="echarts4r html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"fontSize":14,"formatter":"function(value, index) {\n        var fmt = new Intl.NumberFormat('en', {\"style\":\"percent\",\"minimumFractionDigits\":0,\"maximumFractionDigits\":0,\"currency\":\"USD\"});\n        return fmt.format(value);\n    }"}}],"xAxis":[{"data":["% Asian","% Black","% Hispanic","% White","% Minority","% Econ. Disadvantaged","% LEP","% SPED"],"type":"category","boundaryGap":true,"axisTick":{"interval":0},"axisLabel":{"fontSize":14,"interval":0,"rotate":45}}],"tooltip":{"trigger":"item","formatter":"\n      function(params){\n             return(\n             params.marker +\n             params.seriesName +\n             '<br/>' +\n             params.value[0] +\n             ': ' + ' ' +\n             (params.value[1] * 100).toFixed(2) + '%'\n             )                                                                    \n             }\n       "},"color":["#FF6633","#2879CB"],"toolbox":{"bottom":0,"feature":{"dataZoom":[],"restore":[]}},"legend":{"data":["Open Enrollment Charter","Traditional ISD/CSD"]},"series":[{"data":[{"value":["% Asian","0.04552533"],"name":"4.55%"},{"value":["% Black","0.17927416"],"name":"17.93%"},{"value":["% Hispanic","0.61524903"],"name":"61.52%"},{"value":["% White","0.13710668"],"name":"13.71%"},{"value":["% Minority","0.86289332"],"name":"86.29%"},{"value":["% Econ. Disadvantaged","0.69896391"],"name":"69.9%"},{"value":["% LEP","0.26836389"],"name":"26.84%"},{"value":["% SPED","0.07140803"],"name":"7.14%"}],"name":"Open Enrollment Charter","type":"bar","yAxisIndex":0,"xAxisIndex":0,"coordinateSystem":"cartesian2d","barGap":"0%","label":{"show":true,"formatter":"{b}","position":"top","color":"#000000"}},{"data":[{"value":["% Asian","0.04462232"],"name":"4.46%"},{"value":["% Black","0.12292785"],"name":"12.29%"},{"value":["% Hispanic","0.51999016"],"name":"52%"},{"value":["% White","0.28287066"],"name":"28.29%"},{"value":["% Minority","0.71712934"],"name":"71.71%"},{"value":["% Econ. Disadvantaged","0.60049847"],"name":"60.05%"},{"value":["% LEP","0.19014006"],"name":"19.01%"},{"value":["% SPED","0.09790563"],"name":"9.79%"}],"name":"Traditional ISD/CSD","type":"bar","yAxisIndex":0,"xAxisIndex":0,"coordinateSystem":"cartesian2d","barGap":"0%","label":{"show":true,"formatter":"{b}","position":"top","color":"#000000"}}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>

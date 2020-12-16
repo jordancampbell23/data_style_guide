@@ -1,0 +1,107 @@
+---
+title: 'R Code Testing'
+date: '2020-12-15'
+slug: []
+categories: []
+tags: []
+lastmod: '2020-12-15T22:26:10-08:00'
+publishdate: '2020-12-15T22:26:10-08:00'
+description: ''
+weight: 10
+---
+
+Lorem Ipsum.
+
+```{r}
+library(tidyverse)
+library(readr)
+library(echarts4r)
+
+
+school_type <- c("Open Enrollment Charter", "Traditional ISD/CSD")
+
+demographics <- readr::read_csv("https://raw.githubusercontent.com/jordancampbell23/charter/main/df_110820.csv") %>%
+  select(3, 1, 2, 15, 16, 14, 13, 4:12, 17:70)
+
+demographics$`District 2019 Overall Scaled Score` <- as.numeric(demographics$`District 2019 Overall Scaled Score`)
+
+demographics <- demographics %>%
+  select(6:7, 24, 40, 17:23, 41, 43, 45, 47) %>%
+  group_by(`REPORT_CHARTER_STATUS`) %>%
+  summarise(`2018-2019 ADA` = sum(`2018-2019 ADA`),
+            `All Students Count` = sum(`All Students Count`),
+            `Total Ethnicity` = sum(`Total Ethnicity`),
+            `Asian` = sum(`Asian`),
+            `Black or African American` = sum(`Black or African American`),
+            `Hispanic/Latino` = sum(`Hispanic/Latino`),
+            `Two or more races` = sum(`Two or more races`),
+            `White` = sum(`White`),
+            `American Indian or Alaska Nat` = sum(`American Indian or Alaska Nat`),
+            `Native Hawaiian/Other Pacific` = sum(`Native Hawaiian/Other Pacific`),
+            `Total Ethnicity` = sum(`Total Ethnicity`),
+            `# Economically Disadvantaged` = sum(`# Economically Disadvantaged`),
+            `# LEP Students` = sum(`# LEP Students`),
+            `# Special Education` = sum(`# Special Education`),
+            .groups = "keep") %>%
+  mutate(`% Asian` = Asian/`Total Ethnicity`) %>%
+  mutate(`% Black` = `Black or African American`/`Total Ethnicity`) %>%
+  mutate(`% Hispanic` = `Hispanic/Latino`/`Total Ethnicity`) %>%
+  mutate(`% White` = White/`Total Ethnicity`) %>%
+  mutate(`% Minority` = (`Total Ethnicity` -`White`)/`Total Ethnicity`) %>%
+  mutate(`% Econ. Disadvantaged` = `# Economically Disadvantaged`/`All Students Count`) %>%
+  mutate(`% LEP` = `# LEP Students`/`All Students Count`) %>%
+  mutate(`% SPED` = `# Special Education`/`All Students Count`) %>%
+  select(1, 15:22) %>%
+  pivot_longer(cols = 2:9, names_to = "Demographic Variable", values_to = "Percent")
+
+
+my_colors <- tibble::tibble(
+  REPORT_CHARTER_STATUS = school_type,
+  color = c("#FF6633",
+            "#2879CB")
+)
+
+## filter selected and add color information
+dat <-
+  demographics %>% 
+  #dplyr::filter(`Demographic Variable` %in% input$crop_select3) %>%
+  dplyr::left_join(my_colors, by = "REPORT_CHARTER_STATUS") %>%
+  dplyr::mutate(`Label` = paste0(round(Percent * 100, 2), "%"))
+
+## plot
+e <- dat %>%
+  dplyr::group_by(REPORT_CHARTER_STATUS) %>% 
+  echarts4r::e_charts(`Demographic Variable`) %>% 
+  echarts4r::e_tooltip(trigger = "item",
+                       formatter = e_tooltip_item_formatter(style = "percent", digits = 2)) %>% 
+  echarts4r::e_x_axis(axisTick = list(interval = 0)) %>% 
+  echarts4r::e_color(unique(dat$color)) %>% 
+  echarts4r::e_toolbox(bottom = 0) %>% 
+  echarts4r::e_toolbox_feature(feature = "dataZoom") %>%
+  echarts4r::e_toolbox_feature(feature = "restore") %>%
+  echarts4r::e_x_axis(axisLabel = list(fontSize = 14, interval = 0, rotate = 45)) %>%
+  echarts4r::e_y_axis(axisLabel = list(fontSize = 14), 
+                      formatter = e_axis_formatter(style = "percent",
+                                                   digits = 0)) %>%
+  e_tooltip(formatter = htmlwidgets::JS("
+      function(params){
+             return(
+             params.marker +
+             params.seriesName +
+             '<br/>' +
+             params.value[0] +
+             ': ' + ' ' +
+             (params.value[1] * 100).toFixed(2) + '%'
+             )                                                                    
+             }
+       "))
+
+e %>% echarts4r::e_bar(`Percent`,
+                       barGap = "0%",
+                       bind = Label,
+                       label=list(show = T,
+                                  formatter = "{b}",
+                                  position = "top",
+                                  color = "#000000"))
+
+```
